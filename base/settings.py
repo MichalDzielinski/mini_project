@@ -5,12 +5,13 @@ from dotenv import load_dotenv
 #region SETTINGS & DEPLOYMENT
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
-SECRET_KEY = os.envirion.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 ALLOWED_HOSTS = []
 
 WSGI_APPLICATION = 'base.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ROOT_URLCONF = 'base.urls'
 #endregion
 
 INSTALLED_APPS = [
@@ -34,8 +35,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-ROOT_URLCONF = 'base.urls'
 
 TEMPLATES = [
     {

@@ -1,0 +1,28 @@
+<form method="GET">
+    <input type="search" name="movie_name">
+    <button type="submit">Submit</button>
+</form>
+
+
+
+
+    {% for m in ml %}
+        {{m.name}}
+        &nbsp;&nbsp;
+        {{m.rating}}
+        <br>
+
+    {% endfor %}
+
+
+{% if ml.has_previous %}
+    
+    <a href="?page=1">First</a>
+    <a href="?page={{ml.previous_page_number}}">Previous</a>
+{% endif%}
+    Page: {{ml.number}} of {{ ml.paginator.num_pages}}
+
+{% if ml.has_next %}
+    <a href="?page={{ml.next_page_number}}">Next</a>
+    <a href="?page={{ml.paginator.num_pages}}">Last</a>
+{% endif%}
