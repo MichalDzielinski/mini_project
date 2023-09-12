@@ -8,7 +8,7 @@ def index(request):
     movie_name = request.GET.get('movie_name')
 
     if movie_name != '' and movie_name is not None:
-        ml = Movies.objects.filter(name=movie_name)
+        ml = Movies.objects.filter(name__icontains=movie_name)
 
     paginator = Paginator(ml, 3)
     page = request.GET.get('page')
